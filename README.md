@@ -108,8 +108,10 @@ The project follows a complete data science workflow:
 │   └── notes.csv
 ├── notebooks/
 │   └── banknote_counterfeit_detection.ipynb
-├── images/
-│   └── (plots & screenshots)
+├── iimages/
+    ├── pca_plot.png
+    ├── confusion_matrix_kmeans.png
+    ├── confusion_matrix_logistic.png
 ├── requirements.txt
 └── README.md
 ```
