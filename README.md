@@ -1,79 +1,151 @@
-# Banknote Counterfeit Detection
+# 💵 Banknote Counterfeit Detection
 
-## Project Overview
+## 📌 Overview
 
-This project aims to detect counterfeit banknotes using geometric measurements and machine learning techniques.
+This project aims to detect counterfeit banknotes using machine learning techniques based on geometric measurements.
 
-The analysis compares an unsupervised clustering approach with a supervised classification model in order to identify the most reliable method for counterfeit detection.
+The goal is to compare unsupervised and supervised approaches to identify the most reliable method for classification.
 
-## Business Context
+---
 
-A public security organization wants to automate the detection of counterfeit banknotes based on physical measurements.  
-The goal is to build a reliable model that can classify a banknote as genuine or counterfeit.
+## 🎯 Business Problem
 
-## Dataset
+Financial institutions need reliable tools to detect counterfeit banknotes.
 
-The dataset contains 170 banknotes:
+This project builds and evaluates models to automatically classify banknotes as **genuine** or **counterfeit** based on their physical characteristics.
 
-- 100 genuine banknotes
-- 70 counterfeit banknotes
-- 6 numerical features describing banknote dimensions
-- 1 target variable: `is_genuine`
+---
+
+## 📊 Dataset
+
+* **170 banknotes**
+
+  * 100 genuine
+  * 70 counterfeit
+* **6 numerical features** (dimensions in mm)
+* **1 target variable**: `is_genuine`
 
 Features include:
 
-- diagonal
-- height_left
-- height_right
-- margin_low
-- margin_up
-- length
+* `diagonal`
+* `height_left`
+* `height_right`
+* `margin_low`
+* `margin_up`
+* `length`
 
-## Methodology
+---
 
-The project follows these steps:
+## 🔍 Methodology
 
-1. Exploratory Data Analysis
-2. Statistical tests on feature relevance
-3. Principal Component Analysis
-4. KMeans clustering
-5. Logistic Regression modeling
-6. Model comparison and final recommendation
+The project follows a complete data science workflow:
 
-## Key Findings
+### 1. Exploratory Data Analysis (EDA)
 
-- Some geometric features show strong differences between genuine and counterfeit banknotes.
-- PCA shows a clear separation between genuine and counterfeit banknotes.
-- KMeans clustering achieves around 95% accuracy.
-- Logistic Regression achieves stronger performance and is better suited for the final detection task.
+* Distribution analysis
+* Statistical tests (Student test)
+* Correlation analysis
 
-## Model Performance
+### 2. Dimensionality Reduction
 
-| Model | Approach | Accuracy |
-|---|---:|---:|
-| KMeans | Unsupervised learning | 95.29% |
-| Logistic Regression | Supervised learning | 100% on test set |
+* Principal Component Analysis (PCA)
+* Visualization of class separation
 
-## Final Recommendation
+### 3. Unsupervised Learning
 
-Logistic Regression is the preferred model because it provides better classification performance and is easier to interpret.
+* KMeans clustering
+* Evaluation using confusion matrix
 
-The most influential variables are:
+### 4. Supervised Learning
 
-- margin_low
-- margin_up
-- length
+* Logistic Regression
+* Train/test split (80/20)
+* Model evaluation
 
-## Repository Structure
+### 5. Model Optimization
+
+* Feature selection
+* Reduced model with similar performance
+
+---
+
+## 📈 Results
+
+| Model                    | Type         | Accuracy |
+| ------------------------ | ------------ | -------- |
+| KMeans                   | Unsupervised | ~95%     |
+| Logistic Regression      | Supervised   | ~100%    |
+| Optimized Logistic Model | Supervised   | ~100%    |
+
+---
+
+## 🧠 Key Insights
+
+* The dataset shows a **strong natural separation** between genuine and counterfeit banknotes.
+* KMeans performs well despite being unsupervised, confirming the robustness of the data structure.
+* Logistic Regression provides **near-perfect classification performance**.
+* A reduced model using fewer variables achieves the same performance, improving interpretability.
+
+---
+
+## 🖼️ Visualizations
+
+### PCA Projection (True vs Predicted)
+
+*(add your screenshot here)*
+
+### Confusion Matrices
+
+*(add your screenshots here)*
+
+---
+
+## 🧱 Project Structure
 
 ```text
 .
 ├── data/
-│   ├── notes.csv
-│   └── example.csv
+│   └── notes.csv
 ├── notebooks/
 │   └── banknote_counterfeit_detection.ipynb
-├── reports/
-│   └── banknote_counterfeit_detection.pdf
-├── README.md
-└── requirements.txt
+├── images/
+│   └── (plots & screenshots)
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## ⚙️ Tech Stack
+
+* Python
+* Pandas / NumPy
+* Matplotlib / Seaborn
+* Scikit-learn
+* Statsmodels
+
+---
+
+## 🚀 How to Run
+
+```bash
+pip install -r requirements.txt
+```
+
+Then open the notebook:
+
+```bash
+jupyter notebook notebooks/banknote_counterfeit_detection.ipynb
+```
+
+---
+
+## 👨‍💻 Author
+
+**Mohammed Mokeddem**
+
+---
+
+## ⭐ Key Takeaway
+
+This project demonstrates how combining **exploratory analysis, dimensionality reduction, and machine learning** can lead to highly accurate classification systems, even with relatively small datasets.
